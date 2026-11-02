@@ -1,0 +1,27 @@
+{
+  "name": "@storeos/admin-dashboard-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3020",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 3020"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.100.14",
+    "lucide-react": "^0.525.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.12"
+  }
+}
