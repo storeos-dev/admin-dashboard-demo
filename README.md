@@ -4,13 +4,6 @@ Sandbox custom merchant admin against [StoreOS](https://storeos.dev) core GraphQ
 
 Docs: [Custom admin dashboard](https://storeos.dev/docs/guides/admin-dashboard) · [API keys](https://storeos.dev/docs/guides/api-keys)
 
-## What's included
-
-- Staff sign-in (`identity__login`)
-- Overview KPIs (`report__dashboardOverview`)
-- Orders list + detail
-- Products list
-
 ## Setup
 
 ```bash
@@ -21,18 +14,13 @@ cp .env.example .env
 
 ```env
 VITE_STOREOS_API_KEY=sos_live_…
-STOREOS_GATEWAY_URL=https://api.storeos.dev
-# or local gateway:
-# STOREOS_GATEWAY_URL=http://localhost:8788
+VITE_STOREOS_GATEWAY_URL=https://api.storeos.dev
 ```
 
 ```bash
-bun install   # or npm install
-bun run dev   # → http://localhost:3020
+bun install
+bun run dev
+# → http://localhost:3020
 ```
 
-1. In the StoreOS console: **Organization settings → API keys** → create a key with **core** access.
-2. Put it in `.env` as `VITE_STOREOS_API_KEY`.
-3. Sign in with a staff email/password for that store.
-
-The browser calls `/core/graphql` on the same origin; Vite proxies that to `STOREOS_GATEWAY_URL` (the gateway does not allow CORS).
+Create a **core** API key in Organization settings → API keys, then sign in with a staff email/password. The browser calls the gateway URL directly.

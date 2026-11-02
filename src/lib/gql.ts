@@ -1,5 +1,8 @@
 import { getAccessToken } from "./auth";
 
+const GATEWAY_URL = (
+  import.meta.env.VITE_STOREOS_GATEWAY_URL || "https://api.storeos.dev"
+).replace(/\/$/, "");
 const API_KEY = import.meta.env.VITE_STOREOS_API_KEY || "";
 
 export type GqlError = {
@@ -31,8 +34,7 @@ export async function gqlRequest<T>(
     headers.Authorization = `Bearer ${token}`;
   }
 
-  // Same-origin path — Vite proxies /core → STOREOS_GATEWAY_URL (no CORS).
-  const response = await fetch("/core/graphql", {
+  const response = await fetch(`${GATEWAY_URL}/core/graphql`, {
     method: "POST",
     headers,
     body: JSON.stringify({ query, variables }),
